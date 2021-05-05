@@ -1,9 +1,9 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { todoListStatsState } from "../../recoil/todo";
-import { Flex, Box, Donut, Text } from "theme-ui";
+import { Flex } from "theme-ui";
+import TodoStatsItem from "./TodoStatsItem/TodoStatsItem";
 
-// ------ Component: TodoListStats ---
 export default function TodoListStats() {
   const { totalNum, totalCompletedNum, totalUncompletedNum } = useRecoilValue(
     todoListStatsState
@@ -18,56 +18,9 @@ export default function TodoListStats() {
         flexWrap: "wrap",
       }}
     >
-      <Box p={2} bg="primary" sx={{ flex: "1 1 auto" }}>
-        <Text
-          m={2}
-          sx={{
-            color: "black",
-            border: "1px solid blue",
-            padding: "0.5rem 1rem",
-            borderRadius: "1rem",
-            display: "flex",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          Items completed: {totalCompletedNum}
-          <Donut value={totalCompletedNum / totalNum} />
-        </Text>
-      </Box>
-      <Box p={2} bg="primary" sx={{ flex: "1 1 auto" }}>
-        <Text
-          m={2}
-          sx={{
-            color: "black",
-            border: "1px solid blue",
-            padding: "0.5rem 1rem",
-            borderRadius: "1rem",
-            display: "flex",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          Total items: {totalNum}
-        </Text>
-      </Box>
-      <Box p={2} bg="primary" sx={{ flex: "1 1 auto" }}>
-        <Text
-          m={2}
-          sx={{
-            color: "black",
-            border: "1px solid blue",
-            padding: "0.5rem 1rem",
-            borderRadius: "1rem",
-            display: "flex",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          Items not completed: {totalUncompletedNum}
-          <Donut value={totalUncompletedNum / totalNum} />
-        </Text>
-      </Box>
+      <TodoStatsItem donut text="Items completed:" amount={totalCompletedNum} />
+      <TodoStatsItem text="Total items:" amount={totalNum} />
+      <TodoStatsItem donut text="Items to do:" amount={totalUncompletedNum} />
     </Flex>
   );
 }
