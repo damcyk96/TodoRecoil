@@ -1,0 +1,4 @@
+export const TODO_TYPE = {
+  COMPLETED: 'COMPLETED',
+  UNCOMPLETED: 'UNCOMPLETED'
+}
