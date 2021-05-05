@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Flex } from "theme-ui";
+import { Heading } from "theme-ui";
 
 const TodoTitle = ({ headline }): JSX.Element => {
   return (

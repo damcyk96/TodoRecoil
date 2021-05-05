@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { useRecoilValue } from "recoil";
 import { todoListStatsState } from "../../recoil/todo";
 import { Flex, Box, Donut, Text } from "theme-ui";
